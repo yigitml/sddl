@@ -1,0 +1,71 @@
+{
+  "manifest_version": 3,
+  "name": "sddl",
+  "version": "1.0.0",
+  "description": "StudyDrive Download Script",
+  "host_permissions": [
+    "https://www.studydrive.net/*"
+  ],
+  "homepage_url": "https://github.com/yigitml/sddl",
+  "permissions": [
+    "scripting",
+    "storage",
+    "downloads",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.studydrive.net/*"
+      ],
+      "js": [
+        "isolated-cs.js"
+      ],
+      "world": "ISOLATED",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.studydrive.net/*"
+      ],
+      "js": [
+        "main-cs.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.studydrive.net/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "world": "ISOLATED",
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://www.studydrive.net/*"
+      ],
+      "js": [
+        "bulk-course.js"
+      ],
+      "world": "ISOLATED",
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16x16.png",
+      "48": "icon48x48.png",
+      "128": "icon128x128.png"
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}

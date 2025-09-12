@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extension Popup</title>
+    <link rel="stylesheet" href="main.css" />
+
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="title">Studydrive Download</h1>
+      <nav class="tabs" role="tablist" aria-label="Studydrive Download Tabs">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="panel-downloads" id="tab-downloads">Downloads</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-files" id="tab-files">Files</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-settings" id="tab-settings">Settings</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-about" id="tab-about">About</button>
+      </nav>
+    </header>
+
+    <section id="panel-downloads" class="panel section" role="tabpanel" tabindex="0" aria-labelledby="tab-downloads">
+      <h2 class="sr-only">Downloads</h2>
+      <div id="bulk_download_section" class="bulk-controls">
+        <div class="status-info">
+          <span id="found_files_count">Checking...</span>
+          <span id="download_progress"></span>
+          <div class="progress" aria-live="polite" aria-label="Download progress">
+            <div id="progress_bar_fill" class="progress__bar" style="width: 0%"></div>
+          </div>
+          <div class="progress__meta">
+            <span id="progress_percent">0%</span>
+            <span id="progress_counter">0/0</span>
+          </div>
+        </div>
+        <div class="button-group">
+          <button id="start_bulk_btn" class="btn btn-primary" disabled>Start</button>
+          <button id="pause_bulk_btn" class="btn btn-secondary" disabled>Pause</button>
+          <button id="stop_bulk_btn" class="btn btn-danger" disabled>Stop</button>
+        </div>
+      </div>
+
+      <div class="queue">
+        <h3 class="queue__title">Queue</h3>
+        <div id="queue_list" class="queue__list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="panel-files" class="panel section is-hidden" role="tabpanel" tabindex="0" aria-labelledby="tab-files">
+      <h2 class="sr-only">Files</h2>
+      <div class="section">
+        <h3>Current File</h3>
+        <div class="filelist" id="current"></div>
+      </div>
+      <div class="section">
+        <h3>Other Files</h3>
+        <div class="filelist" id="other"></div>
+      </div>
+    </section>
+
+    <section id="panel-settings" class="panel section is-hidden" role="tabpanel" tabindex="0" aria-labelledby="tab-settings">
+      <h2 class="sr-only">Settings</h2>
+      <div class="setting">
+        <label class="switch">
+          <input type="checkbox" id="theme_toggle" aria-label="Toggle dark mode" />
+          <span class="slider"></span>
+          <span class="switch__label">Dark mode</span>
+        </label>
+      </div>
+    </section>
+  </body>
+</html>
