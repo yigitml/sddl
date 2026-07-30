@@ -56,16 +56,12 @@
     }
   ],
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icon16x16.png",
-      "48": "icon48x48.png",
-      "128": "icon128x128.png"
-    }
+    "default_popup": "popup.html"
   },
   "background": {
     "scripts": [
       "background.js"
-    ]
+    ],
+    "service_worker": "background.js"
   }
 }
